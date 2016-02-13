@@ -23,13 +23,6 @@ angular.module('ToDo', []).
       {'title':'Build a todo app', 'description':'work', 'date': '2016-02-18', 'done':true},
       {'title':'Welcome', 'description':'Try out my to do list!', 'date':'2016-02-18', 'done': false}
     ];
-    var orderBy = $scope('orderBy');
-
-    $scope.order = function(predicate) {
-      $scope.predicate = predicate;
-      $scope.todoList = orderBy($scope.todoList, predicate);
-    };
-    $scope.order('title');
 
 
     //Function which adds items to array

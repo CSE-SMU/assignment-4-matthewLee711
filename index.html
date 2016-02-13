@@ -24,7 +24,8 @@
         <br>
   			<input type="text" id="newdescription" ng-model="newdescription" placeholder="Description" required />
   			<input type="date" ng-model="newdate" class="form-control" placeholder="yyyy-MM-dd" min="2016-02-11" max="2020-12-31" required>
-  			<button ng-disabled="frm.$invalid">New Note</button>
+  			<button ng-disabled="frm.$invalid">Save To Do</button>
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchList">
   		</form>
   		
 		<!-- put everything under into a table -->
@@ -37,7 +38,7 @@
 				<td class="tasks">Description</td>
 				<td class="tasks">Date</td>
 			</tr>
-			<tr ng-repeat="todo in todos">
+			<tr ng-repeat="todo in todos | filter:searchList">
 				<td><input type="checkbox" ng-model="todo.done" /></td>
 				<td><span ng-class="{'done':todo.done}">{{todo.title}}</span></td>
 				<td><span ng-class="{'done':todo.done}">{{todo.description}}</span></td>

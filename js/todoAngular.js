@@ -25,6 +25,7 @@ angular.module('ToDo', []).
       {'title':'Welcome', 'description':'Try out my to do list!', 'date':'2016-02-18', 'done': false},
       {'title':'aa', 'description':'Try out my to do list!', 'date':'2016-02-18', 'done': false}
     ];
+    $scope.searchList = '';
     
     $scope.order = function(predicate) {
       $scope.predicate = predicate;

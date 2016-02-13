@@ -1,9 +1,65 @@
-<html>
+<html lang="en" ng-app="ToDo">
   <head>
     <title>Todo Application</title>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <script src="js/todoAngular.js"></script>
+    <!-- <script src="js/dropdown.js"></script> -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  .done{text-decoration: line-through;color:#ccc;} /*add style for when done button pressed*/
+  </style>
+
   </head>
   <body>
+
+  	<h3> To Do List </h3>
+  	<!-- Create controller for toDo list -->
+  	<div ng-controller="todoController">
+  		<!-- Create form and button to submit -->
+  		<form class="frm" ng-submit="addTodo()">
+  			<input type="text" id="newtodo" ng-model="newtodo" placeholder="Title" required />
+        <br>
+  			<input type="text" id="newdescription" ng-model="newdescription" placeholder="Description" required />
+  			<input type="date" ng-model="newdate" class="form-control" placeholder="yyyy-MM-dd" min="2016-02-11" max="2020-12-31" required>
+  			<button ng-disabled="frm.$invalid">New Note</button>
+  		</form>
+  		
+		<!-- put everything under into a table -->
+		<h4 class="taskbar">Task</h4>
+		<!-- table to show toDo list -->
+		<table>
+			<tr>
+				<td class="tasks">Complete?</td>
+				<td class="tasks">Task</td>
+				<td class="tasks">Description</td>
+				<td class="tasks">Date</td>
+			</tr>
+			<tr ng-repeat="todo in todos">
+				<td><input type="checkbox" ng-model="todo.done" /></td>
+				<td><span ng-class="{'done':todo.done}">{{todo.title}}</span></td>
+				<td><span ng-class="{'done':todo.done}">{{todo.description}}</span></td>
+        <td><span ng-class="{'done':todo.done}">{{todo.date}}</span></td>
+			</tr>
+		</table>
+
+    <div>
+      <span class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Order By
+        <span class="caret"></span></button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button ng-click="order('title')"  class="dropdown-item" type="submit">Time/Date</button>
+          <button ng-click="order('newtodo')" class="dropdown-item" type="submit">Title</button>
+        </div>
+      </span>
+      <span id="removeButton" ng-click="clearCompleted()" class="btn btn-primary">Remove marked</span>
+    </div>
+
+
+
+  	</div> <!-- controller -->
+
   </body>
 </html>

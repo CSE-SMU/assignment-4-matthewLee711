@@ -1,0 +1,41 @@
+body {
+	padding: 10px;
+}
+table {
+	width: 100%;
+}
+
+.taskbar {
+	padding: 10px;
+}
+
+td {
+	padding: 10px;
+}
+
+input[type="date"].form-control {
+  padding: 0 .25rem;
+}
+
+.frm {
+  top: 10%;
+  margin:0 auto;
+}
+
+.form-control {
+	width: 20%;
+}
+
+#newtodo {
+	width: 20%;
+}
+#newdescription {
+	width: 20%
+}
+
+
+.tasks {
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+}
